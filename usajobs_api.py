@@ -1,5 +1,5 @@
 import requests
-from MultiAgentJobSearchSystem.utils.config import USAJOBS_API_KEY
+from utils.config import USAJOBS_API_KEY
 
 def fetch_usajobs(keyword, location="remote", results_per_page=5):
     headers = {

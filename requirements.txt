@@ -1,0 +1,8 @@
+# NOTE: CrewAI currently requires Python < 3.14 (see CrewAI docs).
+# If you're on Homebrew Python 3.14+, install Python 3.13 (e.g. `brew install python@3.13`)
+# and create your venv with that interpreter.
+streamlit
+requests
+python-dotenv
+crewai; python_version < "3.14"
+langchain-google-genai

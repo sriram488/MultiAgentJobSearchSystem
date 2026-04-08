@@ -1,17 +1,7 @@
 import streamlit as st
 
-# When running `streamlit run MultiAgentJobSearchSystem/streamlit_app.py`,
-# Streamlit adds this file's directory to sys.path (not the repo root).
-# Add the repo root so absolute imports like `MultiAgentJobSearchSystem.*` work.
-import sys
-from pathlib import Path
-
-_repo_root = Path(__file__).resolve().parents[1]
-if str(_repo_root) not in sys.path:
-    sys.path.insert(0, str(_repo_root))
-
-from MultiAgentJobSearchSystem.orchestrator import run_pipeline
-from MultiAgentJobSearchSystem.usajobs_api import fetch_usajobs
+from orchestrator import run_pipeline
+from usajobs_api import fetch_usajobs
 
 st.set_page_config(page_title="AI Job Hunt Assistant", layout="centered")
 

@@ -1,6 +1,6 @@
 from crewai import Agent, Task
 from langchain_google_genai import ChatGoogleGenerativeAI
-from MultiAgentJobSearchSystem.utils.config import GEMINI_API_KEY
+from utils.config import GEMINI_API_KEY
 
 def get_messaging_agent() -> Agent:
     llm = ChatGoogleGenerativeAI(

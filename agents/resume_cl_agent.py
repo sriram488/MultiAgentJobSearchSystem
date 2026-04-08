@@ -1,6 +1,6 @@
 from crewai import Agent, Task
 from langchain_google_genai import ChatGoogleGenerativeAI
-from MultiAgentJobSearchSystem.utils.config import GEMINI_API_KEY
+from utils.config import GEMINI_API_KEY
 
 def get_resume_cl_agent() -> Agent:
     llm = ChatGoogleGenerativeAI(
@@ -39,5 +39,5 @@ def create_resume_cl_task(agent, job_summary, resume_text):
         <<COVER_LETTER>>
         [Your personalized cover letter here]
         """,
-        output_file="MultiAgentJobSearchSystem/data/resume_agent_output.txt",
+        output_file="data/resume_agent_output.txt",
     )

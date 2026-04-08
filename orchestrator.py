@@ -1,19 +1,29 @@
-from crewai import Crew, Process
-from MultiAgentJobSearchSystem.agents.jd_analyst import (
+try:
+    from crewai import Crew, Process  # pyright: ignore[reportMissingImports]
+except ModuleNotFoundError as e:
+    raise ModuleNotFoundError(
+        "Missing dependency: `crewai`.\n\n"
+        "CrewAI currently requires Python < 3.14.\n"
+        "Install Python 3.13, create a venv, then install deps:\n"
+        "  python3.13 -m venv .venv\n"
+        "  . .venv/bin/activate\n"
+        "  python -m pip install -r requirements.txt\n"
+    ) from e
+from agents.jd_analyst import (
     create_jd_analysis_task,
     get_jd_analyst_agent,
 )
-from MultiAgentJobSearchSystem.agents.messaging_agent import (
+from agents.messaging_agent import (
     create_messaging_task,
     get_messaging_agent,
 )
-from MultiAgentJobSearchSystem.agents.resume_cl_agent import (
+from agents.resume_cl_agent import (
     create_resume_cl_task,
     get_resume_cl_agent,
 )
-from MultiAgentJobSearchSystem.utils.tracking import log_application, save_cover_letter_file
+from utils.tracking import log_application, save_cover_letter_file
 
-def load_resume(path="MultiAgentJobSearchSystem/data/sample_resume.txt"):
+def load_resume(path="data/sample_resume.txt"):
     with open(path, "r") as file:
         return file.read()
 
@@ -27,11 +37,11 @@ def extract_between_markers(text, start, end=None):
         return "Not found"
 
 def run_pipeline(job_data, resume_text, user_bio):
-    from MultiAgentJobSearchSystem.utils.config import GEMINI_API_KEY
+    from utils.config import GEMINI_API_KEY
 
     if not GEMINI_API_KEY:
         raise RuntimeError(
-            "Missing GEMINI_API_KEY. Set it in `MultiAgentJobSearchSystem/utils/.env` "
+            "Missing GEMINI_API_KEY. Set it in `utils/.env` "
             "or export GEMINI_API_KEY before running."
         )
     job_summary = job_data['UserArea']['Details']['JobSummary']

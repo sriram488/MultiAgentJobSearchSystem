@@ -1,7 +1,7 @@
 from crewai import Agent, Task
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-from MultiAgentJobSearchSystem.utils.config import GEMINI_API_KEY
+from utils.config import GEMINI_API_KEY
 
 
 def get_jd_analyst_agent() -> Agent:
@@ -32,5 +32,5 @@ def create_jd_analysis_task(agent: Agent, job_description: str) -> Task:
         """,
         expected_output="A structured markdown summary containing sections for Qualifications, Required Skills, and Responsibilities.",
         agent=agent,
-        output_file="MultiAgentJobSearchSystem/data/report.md",
+        output_file="data/report.md",
     )
