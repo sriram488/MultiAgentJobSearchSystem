@@ -20,7 +20,7 @@ python -m pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-### Technologies- Python, Gemini, LangChain, Streamlit
+### Technologies- Python, CrewAI, Gemini, LangChain, Streamlit
 
 
 The job market is competitive, and nearly every employer now expects AI skills. Building an AI-powered job application assistant that automates your entire job search. In this project, we'll create a multi-agent system using CrewAI, Python, and Streamlit that handles everything from analyzing job descriptions to drafting personalized LinkedIn outreach messages, saving time while showcasing your AI workflow automation capabilities to potential employers.
